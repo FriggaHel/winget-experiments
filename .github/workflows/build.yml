@@ -8,7 +8,17 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install deps
+      - name: Download Saucectl
         run: |
-          Add-AppxProvisionedPackage -Path C:\offline -PackagePath C:\MSIX\MyPackage.msix -LicensePath C:\MSIX\MyLicense.xml
+          mkdir C:\saucectl\
+          Invoke-WebRequest -Uri "https://github.com/saucelabs/saucectl/releases/download/v0.139.0/saucectl_0.139.0_win_64-bit.zip" -OutFile "C:\saucectl_0.139.0_win_64-bit.zip"
+          Expand-Archive C:\saucectl_0.139.0_win_64-bit.zip -DestinationPath C:\saucectl\
+
+      - name: Build msix
+        run: |
+          C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\MakeAppx.exe" bundle /d C:\saucectl\ /p C:\saucectl_amd64.msixbundle
+
+      # - name: Install deps
+      #   run: |
+      #     Add-AppxProvisionedPackage -Path C:\saucectl -PackagePath C:\saucectl.msix -LicensePath C:\MSIX\MyLicense.xml
 
