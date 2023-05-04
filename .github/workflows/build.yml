@@ -35,12 +35,12 @@ jobs:
       - name: Build AppX (amd64)
         working-directory: ./amd64/
         run: |
-          & 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\MakeAppx.exe' pack /v /h SHA512 /p ..\saucectl_win-amd64.appx
+          & 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\MakeAppx.exe' pack /v /h SHA512 /d . /p ..\saucectl_win-amd64.appx
 
       - name: Build AppX (arm64)
         working-directory: ./arm64/
         run: |
-          & 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\MakeAppx.exe' pack /v /h SHA512 /p ..\saucectl_win-arm64.appx
+          & 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\MakeAppx.exe' pack /v /h SHA512 /d . /p ..\saucectl_win-arm64.appx
 
       - name: Sign AppX
         run: |
