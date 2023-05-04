@@ -50,7 +50,7 @@ jobs:
       - name: Save Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: saucectl_win64.appx
+          name: saucectl_win.appx
           path: |
             saucectl_win-x64.appx
             saucectl_win-arm64.appx
