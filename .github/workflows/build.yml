@@ -30,7 +30,7 @@ jobs:
 
           $Env:GOOS="windows"
           $Env:GOARCH="arm64"
-          GOOS=windows GOARCH=arm64 go build -o ..\arm64\saucectl.exe cmd/saucectl/saucectl.go
+          go build -o ..\arm64\saucectl.exe cmd/saucectl/saucectl.go
 
       - name: Build AppX (amd64)
         working-directory: ./amd64/
