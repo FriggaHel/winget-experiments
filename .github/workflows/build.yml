@@ -23,7 +23,13 @@ jobs:
         working-directory: ./saucectl/
         run: |
           mkdir C:\saucectl\
-          GOOS=windows GOARCH=amd64 go build -o ..\amd64\saucectl.exe cmd/saucectl/saucectl.go
+
+          $Env:GOOS="windows"
+          $Env:GOARCH="amd64"
+          go build -o ..\amd64\saucectl.exe cmd/saucectl/saucectl.go
+
+          $Env:GOOS="windows"
+          $Env:GOARCH="arm64"
           GOOS=windows GOARCH=arm64 go build -o ..\arm64\saucectl.exe cmd/saucectl/saucectl.go
 
       - name: Build AppX (amd64)
