@@ -11,7 +11,7 @@
   <Identity Name="Saucelabs.Saucectl" 
             Version="0.139.0.0" 
             Publisher="CN=saucectl, O=Sauce Labs, C=US"
-            ProcessorArchitecture="amd64" />
+            ProcessorArchitecture="x64" />
   <Properties>
     <DisplayName>saucectl</DisplayName>
     <PublisherDisplayName>Sauce Labs</PublisherDisplayName>
