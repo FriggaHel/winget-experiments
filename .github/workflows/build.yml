@@ -30,6 +30,7 @@ jobs:
 
       - name: Try Installation
         run: |
+          Import-Module Appx
           Add-AppxPackage .\saucectl_win64.appx
 
 
