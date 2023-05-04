@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package 
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" 
+  xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+  xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+  IgnorableNamespaces="uap uap3 uap5 rescap">
+  <Identity Name="Saucelabs.Saucectl" 
+            Version="0.139.0.0" 
+            Publisher="CN=saucectl, O=Sauce Labs, C=US"
+            ProcessorArchitecture="arm64" />
+  <Properties>
+    <DisplayName>saucectl</DisplayName>
+    <PublisherDisplayName>Sauce Labs</PublisherDisplayName>
+    <Logo>icons\logo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <!-- Minimum supported version is 1809 (October 2018 Update, aka RS5) -->
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19033.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="en-US" />
+  </Resources>
+  <Applications>
+    <Application Id="Saucectl" Executable="saucectl.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="Saucectl" Square150x150Logo="icons\logo.png" Square44x44Logo="icons\logo.png" Description="The Saucectl Utility" BackgroundColor="#0078d7" AppListEntry="none" />
+      <Extensions>
+        <uap3:Extension Category="windows.appExtensionHost">
+          <uap3:AppExtensionHost>
+            <uap3:Name>com.saucelabs.saucectl.source</uap3:Name>
+          </uap3:AppExtensionHost>
+        </uap3:Extension>
+        <uap5:Extension Category="windows.appExecutionAlias">
+          <uap5:AppExecutionAlias>
+            <uap5:ExecutionAlias Alias="saucectl.exe" />
+          </uap5:AppExecutionAlias>
+        </uap5:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <rescap:Capability Name="packageManagement" />
+    <rescap:Capability Name="unvirtualizedResources" />
+  </Capabilities>
+</Package>

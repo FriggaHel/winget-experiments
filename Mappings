@@ -1,0 +1,4 @@
+[Files]
+"C:\saucectl\saucectl.exe"    "saucectl.exe"
+".\AppxManifest.xml"          "AppxManifest.xml"
+".\icons\logo.png"            "icons\logo.png"
